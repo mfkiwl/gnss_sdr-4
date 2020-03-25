@@ -237,6 +237,10 @@ void Gps_L1_Ca_Dll_Pll_Tracking_GPU_cc::start_tracking()
     LOG(INFO) << "PULL-IN Doppler [Hz]=" << d_carrier_doppler_hz
               << " Code Phase correction [samples]=" << delay_correction_samples
               << " PULL-IN Code Phase [samples]=" << d_acq_code_phase_samples;
+    
+    std::cout << "PULL-IN Doppler [Hz]=" << d_carrier_doppler_hz			//orz - dopler freq, code phase correction and code phase
+              << " Code Phase correction [samples]=" << delay_correction_samples
+              << " PULL-IN Code Phase [samples]=" << d_acq_code_phase_samples << std::endl;
 }
 
 
@@ -457,6 +461,9 @@ int Gps_L1_Ca_Dll_Pll_Tracking_GPU_cc::general_work(int noutput_items __attribut
             current_synchro_data.CN0_dB_hz = d_CN0_SNV_dB_Hz;
             current_synchro_data.Flag_valid_symbol_output = true;
             current_synchro_data.correlation_length_ms = 1;
+            
+            std::cout << "Carrier Doppler [Hz]=" << d_carrier_doppler_hz //orz - Carier Doppler, Code Freq Chips, CN0_dB_hz
+                      << " Code Freq Chips [samples]=" << d_code_freq_chips << "CN0 dB Hz " <<d_CN0_SNV_dB_Hz << std::endl;
         }
     else
         {
@@ -474,7 +481,7 @@ int Gps_L1_Ca_Dll_Pll_Tracking_GPU_cc::general_work(int noutput_items __attribut
     current_synchro_data.fs = d_fs_in;
     *out[0] = current_synchro_data;
 
-    if (d_dump)
+    if (d_dump) //orz - i did nothing here, but there are some instresting stuff, worth checking
         {
             // MULTIPLEXED FILE RECORDING - Record results to file
             float prompt_I;
