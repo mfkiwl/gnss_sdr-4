@@ -4255,9 +4255,9 @@ int rtklib_pvt_gs::work(int noutput_items, gr_vector_const_void_star& input_item
                             // p_time += boost::posix_time::microseconds(round(rtklib_utc_time.sec * 1e6));
                             // std::cout << TEXT_MAGENTA << "Observable RX time (GPST) " << boost::posix_time::to_simple_string(p_time) << TEXT_RESET << std::endl;
 
-                            DLOG(INFO) << "Position at " << boost::posix_time::to_simple_string(d_user_pvt_solver->get_position_UTC_time())
-                                       << " UTC using " << d_user_pvt_solver->get_num_valid_observations() << " observations is Lat = " << d_user_pvt_solver->get_latitude() << " [deg], Long = " << d_user_pvt_solver->get_longitude()
-                                       << " [deg], Height = " << d_user_pvt_solver->get_height() << " [m]";
+                            DLOG(INFO) << "Position for #" << boost::posix_time::to_simple_string(d_user_pvt_solver->get_position_UTC_time())
+                                       << "# UTC using #" << d_user_pvt_solver->get_num_valid_observations() << "# observations is Lat = #" << d_user_pvt_solver->get_latitude() << "# [deg], Long = #" << d_user_pvt_solver->get_longitude()
+                                       << "# [deg], Height = #" << d_user_pvt_solver->get_height() << "# [m], Velocity: #" <<  std::fixed << std::setprecision(3) << "#";
 
                             /* std::cout << "Dilution of Precision at " << boost::posix_time::to_simple_string(d_user_pvt_solver->get_position_UTC_time())
                                          << " UTC using "<< d_user_pvt_solver->get_num_valid_observations() <<" observations is HDOP = " << d_user_pvt_solver->get_hdop() << " VDOP = "
