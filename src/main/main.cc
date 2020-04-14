@@ -80,7 +80,7 @@ int main(int argc, char** argv)
 {
     const std::string intro_help(
         std::string("\nGNSS-SDR is an Open Source GNSS Software Defined Receiver\n") +
-        "Copyright (C) 2010-2019 (see AUTHORS file for a list of contributors - my5)\n" +
+        "Copyright (C) 2010-2019 (see AUTHORS file for a list of contributors - my8)\n" +
         "This program comes with ABSOLUTELY NO WARRANTY;\n" +
         "See COPYING file to see a copy of the General Public License\n \n");
 
@@ -88,7 +88,7 @@ int main(int argc, char** argv)
     google::SetUsageMessage(intro_help);
     google::SetVersionString(gnss_sdr_version);
     google::ParseCommandLineFlags(&argc, &argv, true);
-    std::cout << "Initializing GNSS-SDR v" << gnss_sdr_version << " ... Please wait." << std::endl;
+    std::cout << "Initializing GNSS-SDR v" << gnss_sdr_version << " ... Please wait. Its is my8" << std::endl;
 
 #if CUDA_GPU_ACCEL
     // Reset the device
